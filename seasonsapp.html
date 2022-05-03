@@ -24,9 +24,9 @@
     console.log(i)
     document.body.style.backgroundColor = selectElem.options[i].value;
     var images = ["url('./spring.jpg')", 
-    "images('./summer.jpg')",
-    "images('./autumn.jpg')", 
-    "images('./winter.jpg')"]
+    "url('./summer.jpg')",
+    "url('./autumn.jpg')", 
+    "url('./winter.jpg')"]
     document.body.style.backgroundImage  = images[i];
     document.body.style.backgroundRepeat = "no-repeat";
   }
