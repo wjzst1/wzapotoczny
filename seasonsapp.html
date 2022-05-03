@@ -5,6 +5,7 @@
 </head>
 <body>
   <form>
+    // Displays the season selector with an option to choose a season.
     Select your favorite season to change the website theme: 
     <select id="background" onchange="updateBackgroundColor(this)">
       <option value="#ffffff">Spring</option>
@@ -15,12 +16,14 @@
   </form>
 </body>
 
+  // Calls the selected season.
 <script type="text/javascript">
   function updateBackgroundColor(selectElem) {
     var i = selectElem.selectedIndex;
     if (i < 0) {
       return;
     }
+    // Calls an appropriate image based on season selected.
     console.log(i)
     document.body.style.backgroundColor = selectElem.options[i].value;
     var images = ["url('images/spring.jpg')", 
