@@ -1,3 +1,4 @@
+// This function retrieves issues from the Local Storage.
 function fetchIssues () {
   var issues = JSON.parse(localStorage.getItem('issues'));
   var issuesList = document.getElementById('issuesList');
@@ -11,6 +12,7 @@ function fetchIssues () {
     var assignedTo = issues[i].assignedTo;
     var status = issues[i].status;
     
+    
     issuesList.innerHTML +=   '<div class="well">'+
                               '<h6>Issue ID: ' + id + '</h6>'+
                               '<p><span class="label label-info">' + status + '</span></p>'+
@@ -22,9 +24,10 @@ function fetchIssues () {
                               '</div>';
   }
 }
-
+// This is an event handler to the submit event portion of the form.
 document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
+// This function saves the issues when submitted, with each of the identifiers.
 function saveIssue(e) {
   var issueId = chance.guid();
   var issueDesc = document.getElementById('issueDescInput').value;
@@ -58,6 +61,7 @@ function saveIssue(e) {
 
 <a href="#" class="btn btn-warning" onclick="setStatusClosed(\''+id+'\')">Close</a>
 
+// This function sets the status of the issue to Closed.
 function setStatusClosed (id) {
   var issues = JSON.parse(localStorage.getItem('issues'));
   
@@ -73,9 +77,12 @@ function setStatusClosed (id) {
 }
 
 <a href="#" class="btn btn-danger" onclick="deleteIssue(\''+id+'\')">Delete</a>
+
+// Another button is generated for each issue item.
 function deleteIssue (id) {
   var issues = JSON.parse(localStorage.getItem('issues'));
   
+  // The Splice method is used to delete the current item from the array issues.
   for(var i = 0; i < issues.length; i++) {
     if (issues[i].id == id) {
       issues.splice(i, 1);
@@ -83,6 +90,6 @@ function deleteIssue (id) {
   }
   
   localStorage.setItem('issues', JSON.stringify(issues));
-  
+  // This function is run again to update the list output.
   fetchIssues();
 }
