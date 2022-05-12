@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>JavaScript Timer</h1>
+<h1>Timer App</h1>
 
 <button onclick="startTimer()">Start Timer</button>
 <button onclick="stopTimer()">Stop Timer</button>
@@ -15,7 +15,7 @@
 
 <script>
 
-// This function starts the timer when the button is clicked
+// This function starts the timer when the user clicks the respective button, setting an interval that updates the timer every second.
 function startTimer() {
    setInterval(function() {
        var timer = document.getElementById("timer").innerHTML;
@@ -46,12 +46,12 @@ function startTimer() {
    }, 1000);
 }
 
-// This function stops the timer
+// This function stops the timer when the user clicks the respective button, clearing the interval.
 function stopTimer() {
    clearInterval(interval);
 }
 
-// This function resets the timer
+// This function resets the timer clock to 00:00:00 when the user clicks the respective button.
 function resetTimer() {
    document.getElementById("timer").innerHTML = "00:00:00";
 }
