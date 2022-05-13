@@ -20,10 +20,15 @@ background-color: lightblue;
 <p id="timer">00:00:00</p>
 
 <script>
+   
+   var intervalId;
 
 // This function starts the timer clock when the user clicks the respective button, setting an interval that updates the timer every second.
 function startTimer() {
-   setInterval(function() {
+   if (intervalId) {
+      return
+   }
+   intervalId = setInterval(function() {
        var timer = document.getElementById("timer").innerHTML;
        var arr = timer.split(":");
        var h = arr[0];
@@ -54,7 +59,7 @@ function startTimer() {
 
 // This function stops the timer clock when the user clicks the respective button, clearing the interval.
 function stopTimer() {
-   clearInterval(interval);
+   clearInterval(intervalId);
 }
 
 // This function resets the timer clock to 00:00:00 when the user clicks the respective button.
