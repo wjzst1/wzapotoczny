@@ -60,6 +60,7 @@ function startTimer() {
 // This function stops the timer clock when the user clicks the respective button, clearing the interval.
 function stopTimer() {
    clearInterval(intervalId);
+   intervalId = null
 }
 
 // This function resets the timer clock to 00:00:00 when the user clicks the respective button.
